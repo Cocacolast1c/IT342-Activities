@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>IT342-Manabat</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e9ecef;
+        }
+
+        header {
+            background-color: #343a40;
+            color: white;
+            padding: 10px 20px;
+            margin-bottom: 20px;
+        }
+
+        header h2 {
+            margin: 0;
+        }
+
+        .login-container {
+            max-width: 400px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .login-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .oauth-buttons {
+            margin-top: 20px;
+        }
+
+        .oauth-buttons a {
+            display: block;
+            text-align: center;
+            margin-bottom: 10px;
+            text-decoration: none;
+            width: 100%;
+        }
+
+        .oauth-buttons a.google {
+            background-color: #db4437;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .oauth-buttons a.google:hover {
+            background-color: #c23321;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="container">
+        <h2>Woogle Contacts</h2>
+    </div>
+</header>
+
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 60vh;">
+    <div class="login-container">
+        <h4 class="login-title">Welcome Back</h4>
+
+        <form th:action="@{/login}" method="post">
+            <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" class="form-control" id="username" name="username" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">Login</button>
+        </form>
+
+        <div class="oauth-buttons">
+            <a th:href="@{/oauth2/authorization/google}" class="google">
+                Login with Google
+            </a>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
